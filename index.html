@@ -45,6 +45,19 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <!-- Custom Browser Color End -->
+
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+     (function(){
+        emailjs.init({
+        publicKey: "MrXuTeowu4WRLz4ZP",
+         });
+      })();
+    </script>
+    <script src="script.js"></script>
+
   </head>
 
   <body>
@@ -447,7 +460,7 @@
                     I enjoy understanding user problems and turning them into smart design solutions using tools like Figma and Adobe XD. I’m always open to learning, improving, and building designs that are both useful and beautiful.
                   </p>
                   <div class="btn-group about-descr__btnholder animate-in-up">
-                    <a class="btn mobile-vertical btn-default btn-hover btn-hover-accent" href="Saravana Guru K_Resume.pdf" target="_blank">
+                    <a class="btn mobile-vertical btn-default btn-hover btn-hover-accent" href="./SARAVANA GURU K_Resume.pdf" target="_blank">
                       <span class="btn-caption">Download CV</span>
                       <i class="ph-bold ph-download-simple"></i>
                     </a>
@@ -918,39 +931,46 @@
               <!-- Reply Messages End -->
 
               <!-- Contact Form Start -->
-              <form class="form contact-form" id="contact-form">
-                <!-- Hidden Required Fields -->
-                <input type="hidden" name="project_name" value="Starter Template">
-                <input type="hidden" name="admin_email" value="support@mixdesign.dev">
-                <input type="hidden" name="form_subject" value="Contact Form Message">
-                <!-- END Hidden Required Fields-->
-                <div class="container-fluid p-0">
-                  <div class="row gx-0">
-                    <div class="col-12 col-md-6 form__item animate-in-up">
-                      <input type="text" name="Name" placeholder="Your Name*" required>
-                    </div>
-                    <div class="col-12 col-md-6 form__item animate-in-up">
-                      <input type="text" name="Company" placeholder="Company Name">
-                    </div>
-                    <div class="col-12 col-md-6 form__item animate-in-up">
-                      <input type="email" name="E-mail" placeholder="Email Adress*" required>
-                    </div>
-                    <div class="col-12 col-md-6 form__item animate-in-up">
-                      <input type="tel" name="Phone" placeholder="Phone Number*" required>
-                    </div>
-                    <div class="col-12 form__item animate-in-up">
-                      <textarea name="Message" placeholder="A Few Words*" required></textarea>
-                    </div>
-                    <div class="col-12 form__item animate-in-up">
-                      <button class="btn btn-default btn-hover btn-hover-accent" type="submit">
-                        <span class="btn-caption">Send Message</span>
-                        <i class="ph-bold ph-paper-plane-tilt"></i>
-                      </button>
-                    </div>
+               <form class="form contact-form" id="contact-form"  onsubmit="sendMail(event)">
+
+               <!-- Hidden Options -->
+              <input type="hidden" name="_subject" value="New Contact Form Message">
+      
+              <!-- End Hidden Options -->
+
+             <div class="container-fluid p-0">
+               <div class="row gx-0">
+                   <div class="col-12 col-md-6 form__item animate-in-up">
+                      <input type="text" id="name" name="name" placeholder="Your Name*" required>
+                   </div>
+                   <div class="col-12 col-md-6 form__item animate-in-up">
+                       <input type="text" id="company" name="company" placeholder="Company Name" >
+                   </div>
+                   <div class="col-12 col-md-6 form__item animate-in-up">
+                       <input type="email" id="email" name="email" placeholder="Email Address*" required>
+                   </div>
+                   <div class="col-12 col-md-6 form__item animate-in-up">
+                       <input type="tel" id="phone" name="phone" placeholder="Phone Number*" required>
+                   </div>
+                  <div class="col-12 form__item animate-in-up">
+                        <textarea id="message"  name="message" placeholder="A Few Words*" required></textarea>
                   </div>
+                  <div class="col-12 form__item animate-in-up">
+                      <button class="btn btn-default btn-hover btn-hover-accent" type="submit">
+                           <span class="btn-caption">Send Message</span>
+                           <i class="ph-bold ph-paper-plane-tilt"></i>
+                      </button>
+                 </div>
+
+                 <!-- 🔹 NEW: Error message container -->
+                 <div class="col-12">
+                     <p id="error-message" style="color:red; display:none; margin-top:10px;"></p>
+                 </div>
+
+                 
                 </div>
-              </form>
-              <!-- Contact Form End -->
+              </div>
+        </form>
 
             </div>
           </div>
